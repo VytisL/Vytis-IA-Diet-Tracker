@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:id="admin_parent">
-    <left>
-        <fx:include source="Menu.fxml"/>
-    </left>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:id="admin_parent">
+        <left>
+                <fx:include source="Dashboard.fxml" />
+        </left>
 
-    <center>
-        <fx:include source="Authors.fxml"/>
-    </center>
 </BorderPane>

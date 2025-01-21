@@ -39,17 +39,7 @@ public class MenuController implements Initializable {
 
 
 
-    private void onCreateClient(){
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CREATE_CLIENT);
-    }
 
-    private void onClient(){
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.CLIENTS);
-    }
-
-    private void onDeposit(){
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.DEPOSIT);
-    }
 
     private void onLogout(){
         //Get stage
