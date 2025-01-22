@@ -1,6 +1,7 @@
 package com.benedict.minibank.Views;
 
 import com.benedict.minibank.Controllers.RouteController;
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,8 @@ public class ViewFactory {
     private AnchorPane authorsView;
     private AnchorPane createAuthorView;
     private Pane addFoodTypeView;
+    private AnchorPane dashboard;
+
 
     public Pane getAddFoodTypeView() {
         if(addFoodTypeView == null){
@@ -25,6 +28,17 @@ public class ViewFactory {
             }
         }
         return addFoodTypeView;
+    }
+
+    public Pane returnToMainWindow() {
+        if(dashboard == null){
+            try {
+                dashboard = new FXMLLoader(getClass().getResource("/Fxml/Dashboard.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return dashboard;
     }
 
 
@@ -102,6 +116,8 @@ public class ViewFactory {
     }
 
     public void closeStage(Stage stage){
-        stage.close();
+        Platform.runLater(stage::close);
     }
+
+
 }

@@ -34,7 +34,7 @@
             <TextField promptText="Enter calories" />
          </children>
       </VBox>
-      <Button alignment="CENTER" layoutX="14.0" layoutY="289.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #cc3300;" text="Cancel" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button  fx:id="cancel_btn" alignment="CENTER" layoutX="14.0" layoutY="289.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="144.0" style="-fx-background-color: #cc3300;" text="Cancel" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
