@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddMealIntoDayController implements Initializable {
+public class ProgressViewerController implements Initializable {
     @FXML
     public Button cancel_btn;
 

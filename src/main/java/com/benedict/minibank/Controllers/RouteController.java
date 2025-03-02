@@ -17,6 +17,11 @@ public class RouteController implements Initializable {
                 case CREATE_AUTHOR -> admin_parent.setCenter(Model.getInstance().getViewFactory().getCreateAuthorView());
                 case ADD_FOOD_TYPE -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAddFoodTypeView());
                 case CLOSE_WINDOW -> admin_parent.setCenter(Model.getInstance().getViewFactory().returnToMainWindow());
+                case ADD_FOOD_ITEM_INTO_DAY -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAddFoodItemIntoDayView());
+                case CREATE_MEAL -> admin_parent.setCenter(Model.getInstance().getViewFactory().getCreateMealView());
+                case ADD_MEAL_DETAILS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAddMealDetailsView());
+                case ADD_MEAL_INTO_DAY -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAddMealIntoDayView());
+                case PROGRESS_VIEWER -> admin_parent.setCenter(Model.getInstance().getViewFactory().getProgressViewerView());
                 default -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAuthorsView());
             }
         });

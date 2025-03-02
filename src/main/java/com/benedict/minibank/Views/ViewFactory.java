@@ -16,6 +16,11 @@ public class ViewFactory {
     private AnchorPane authorsView;
     private AnchorPane createAuthorView;
     private Pane addFoodTypeView;
+    private Pane addFoodItemIntoDayView;
+    private Pane addMealIntoDayView;
+    private Pane CreateMealView;
+    private Pane addMealDetailsView;
+    private Pane progressViewerView;
     private AnchorPane dashboard;
 
 
@@ -28,6 +33,61 @@ public class ViewFactory {
             }
         }
         return addFoodTypeView;
+    }
+
+    public Pane getAddFoodItemIntoDayView() {
+        if(addFoodItemIntoDayView == null){
+            try {
+                addFoodItemIntoDayView = new FXMLLoader(getClass().getResource("/Fxml/AddFoodItemIntoDayWindow.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return addFoodItemIntoDayView;
+    }
+
+    public Pane getAddMealIntoDayView() {
+        if(addMealIntoDayView == null){
+            try {
+                addMealIntoDayView = new FXMLLoader(getClass().getResource("/Fxml/AddMealIntoDayWindow.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return addMealIntoDayView;
+    }
+
+    public Pane getCreateMealView() {
+        if(CreateMealView == null){
+            try {
+                CreateMealView = new FXMLLoader(getClass().getResource("/Fxml/CreateMealWindow.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return CreateMealView;
+    }
+
+    public Pane getAddMealDetailsView() {
+        if(addMealDetailsView == null){
+            try {
+                addMealDetailsView = new FXMLLoader(getClass().getResource("/Fxml/AddMealDetailsWindow.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return addMealDetailsView;
+    }
+
+    public Pane getProgressViewerView() {
+        if(progressViewerView == null){
+            try {
+                progressViewerView = new FXMLLoader(getClass().getResource("/Fxml/ProgressViewerWindow.fxml")).load();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+        return progressViewerView;
     }
 
     public Pane returnToMainWindow() {
