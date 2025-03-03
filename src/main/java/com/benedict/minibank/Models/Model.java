@@ -1,6 +1,7 @@
 package com.benedict.minibank.Models;
 
 import com.benedict.minibank.Services.dao.AuthorDAO;
+import com.benedict.minibank.Services.dao.FoodTypeDAO;
 import com.benedict.minibank.Services.dao.UserDAO;
 import com.benedict.minibank.Views.ViewFactory;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ public class Model {
     private final ViewFactory viewFactory;
     public final UserDAO userDAO;
     public final AuthorDAO authorDAO;
+    public final FoodTypeDAO foodTypeDAO;
     private boolean loginSuccessFlag;
     private final ObservableList<Author> authors;
     private  User currentUser;
@@ -26,6 +28,7 @@ public class Model {
         this.viewFactory = new ViewFactory();
         this.userDAO = new UserDAO(new DatabaseDriver().getConnection());
         this.authorDAO = new AuthorDAO(new DatabaseDriver().getConnection());
+        this.foodTypeDAO = new FoodTypeDAO(new DatabaseDriver().getConnection());
         this.loginSuccessFlag = false;
         this.currentUser = null;
         this.authors = FXCollections.observableArrayList();
@@ -89,6 +92,11 @@ public class Model {
     public ObservableList<Author> getAuthors(){
         System.out.println(authorDAO.findAll());
         return  authorDAO.findAll();
+    }
+
+    //FoodTypes
+    public void createFoodType(String name, double calories, double protein, double carbs, double fats){
+        foodTypeDAO.create(name, calories, protein, carbs, fats);
     }
 
 }
