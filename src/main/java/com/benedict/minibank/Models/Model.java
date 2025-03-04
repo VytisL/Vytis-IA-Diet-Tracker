@@ -20,6 +20,7 @@ public class Model {
     public final FoodTypeDAO foodTypeDAO;
     private boolean loginSuccessFlag;
     private final ObservableList<Author> authors;
+    private final ObservableList<FoodType> foodTypes;
     private  User currentUser;
 
 
@@ -32,6 +33,7 @@ public class Model {
         this.loginSuccessFlag = false;
         this.currentUser = null;
         this.authors = FXCollections.observableArrayList();
+        this.foodTypes = FXCollections.observableArrayList();
     }
 
     public static synchronized Model getInstance(){
@@ -95,8 +97,14 @@ public class Model {
     }
 
     //FoodTypes
+    public ObservableList<FoodType> getFoodTypes(){
+        return foodTypeDAO.findAll();
+    }
     public void createFoodType(String name, double calories, double protein, double carbs, double fats){
         foodTypeDAO.create(name, calories, protein, carbs, fats);
+    }
+    public void updateFoodType(FoodType foodType){
+        foodTypeDAO.update(foodType);
     }
 
 }

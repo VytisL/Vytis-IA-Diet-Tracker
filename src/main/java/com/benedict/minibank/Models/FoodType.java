@@ -1,11 +1,9 @@
 package com.benedict.minibank.Models;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class FoodType {
+    private IntegerProperty id;
 
     private StringProperty name;
     private DoubleProperty calories;
@@ -19,6 +17,28 @@ public class FoodType {
         this.protein = new SimpleDoubleProperty(protein);
         this.carbs = new SimpleDoubleProperty(carbs);
         this.fats = new SimpleDoubleProperty(fats);
+    }
+    public FoodType(int id, String name, double calories, double protein, double carbs, double fats) {
+        this.id = new SimpleIntegerProperty(id);
+        this.name = new SimpleStringProperty(name);
+        this.calories = new SimpleDoubleProperty(calories);
+        this.protein = new SimpleDoubleProperty(protein);
+        this.carbs = new SimpleDoubleProperty(carbs);
+        this.fats = new SimpleDoubleProperty(fats);
+    }
+
+
+
+    public int getId() {
+        return id.get();
+    }
+
+    public IntegerProperty idProperty() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id.set(id);
     }
 
     public String getName() {
