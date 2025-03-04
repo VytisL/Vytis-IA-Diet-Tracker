@@ -91,4 +91,20 @@ public class FoodTypeDAO {
 
         return foodTypes;
     }
+
+    public void delete(int id) {
+        String sql = "DELETE FROM FoodTypes WHERE id = ?";
+        try(PreparedStatement stmt = this.conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            int rowsAffected = stmt.executeUpdate();
+            if(rowsAffected > 0){
+                System.out.println("FoodType with id " + id +" was successfully deleted");
+            } else {
+                System.out.println("No FoodType was found with id " + id);
+            };
+        } catch (SQLException e){
+            System.out.println("Error deleting FoodType with id " + id);
+            e.printStackTrace();
+        }
+    }
 }

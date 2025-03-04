@@ -106,5 +106,8 @@ public class Model {
     public void updateFoodType(FoodType foodType){
         foodTypeDAO.update(foodType);
     }
+    public void deleteFoodType(int id){
+        foodTypeDAO.delete(id);
+    }
 
 }

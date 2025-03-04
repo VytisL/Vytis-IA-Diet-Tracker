@@ -67,7 +67,7 @@
                            <contextMenu>
                               <ContextMenu>
                                 <items>
-                                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                  <MenuItem fx:id="delete_foodType_btn" mnemonicParsing="false" text="Delete Food Type" />
                                 </items>
                               </ContextMenu>
                            </contextMenu>

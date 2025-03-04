@@ -2,14 +2,13 @@ package com.benedict.minibank.Controllers;
 
 import com.benedict.minibank.Models.FoodType;
 import com.benedict.minibank.Models.Model;
+import com.benedict.minibank.Utilities.AlertUtility;
 import com.benedict.minibank.Utilities.DialogUtility;
 import com.benedict.minibank.Views.MenuOptions;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -18,20 +17,35 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+    @FXML
     public Button add_food_type_btn;
+    @FXML
     public Button add_food_into_day_one_btn;
+    @FXML
     public Button add_food_into_day_two_btn;
+    @FXML
     public Button create_meal_btn;
+    @FXML
     public Button add_meal_into_day_one_btn;
+    @FXML
     public Button add_meal_into_day_two_btn;
+    @FXML
     public Button view_progress_btn;
 
+    @FXML
     public TableView<FoodType> food_types_table;
+    @FXML
     public TableColumn<FoodType, String> types_col_name;
+    @FXML
     public TableColumn<FoodType, String> types_col_calories;
+    @FXML
     public TableColumn<FoodType, String> types_col_protein;
+    @FXML
     public TableColumn<FoodType, String> types_col_carbs;
+    @FXML
     public TableColumn<FoodType, String> types_col_fats;
+    @FXML
+    public MenuItem delete_foodType_btn;
     //add other tables too
 
     @Override
@@ -43,6 +57,7 @@ public class DashboardController implements Initializable {
         add_meal_into_day_one_btn.setOnAction(event -> onAddMealIntoDay());
         add_meal_into_day_two_btn.setOnAction(event -> onAddMealIntoDay());
         view_progress_btn.setOnAction(event -> onViewProgress());
+        delete_foodType_btn.setOnAction(event -> onDeleteFoodType());
         initTypesTableColumns();
         setRowFactoryForFoodTypesTable();
         loadFoodTypeData();
@@ -102,5 +117,23 @@ public class DashboardController implements Initializable {
         ObservableList<FoodType> foodTypes = Model.getInstance().getFoodTypes();
         food_types_table.setItems(foodTypes);
     }
+
+    private void onDeleteFoodType() {
+                                    //converts to FoodType
+        FoodType selectedFoodType = (FoodType) food_types_table.getSelectionModel().getSelectedItem();
+        if(selectedFoodType == null){
+            AlertUtility.displayError("Error selecting FoodType");
+        }
+        boolean confirmed = AlertUtility.displayConfirmation("Are you sure you want to delete this Food Type?");
+        if(confirmed){
+            Model.getInstance().deleteFoodType(selectedFoodType.getId());
+            ObservableList<FoodType> foodTypes = food_types_table.getItems();
+            foodTypes.remove(selectedFoodType);
+            AlertUtility.displayConfirmation("FoodType deleted successfully");
+        }
+
+    }
+
+
 
 }
