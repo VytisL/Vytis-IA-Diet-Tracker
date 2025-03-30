@@ -30,7 +30,7 @@ public class DashboardController implements Initializable {
     @FXML
     public Button add_meal_into_day_two_btn;
 
-
+    //FoodType
     @FXML
     public TableView<FoodType> food_types_table;
     @FXML
@@ -46,6 +46,9 @@ public class DashboardController implements Initializable {
     @FXML
     public MenuItem delete_foodType_btn;
     //add other tables too
+
+    //Add integration for the Meal table later, should be the same as FoodType
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -7,17 +7,12 @@ public class FoodItem extends Food{
     private SimpleIntegerProperty foodTypeId;
     private double portion;
 
-    public FoodItem(int id, SimpleObjectProperty<FoodType> foodType, double portion){
-        this.id = new SimpleIntegerProperty(id);
-        this.foodTypeId = new SimpleIntegerProperty(foodType.get().getId());
+    public FoodItem(SimpleObjectProperty<FoodType> foodType, double portion){
+
         this.foodType = foodType;
         this.portion = portion;
 
-        this.name = new SimpleStringProperty(foodType.getName() + ", " + portion + "g");
-        this.calories = new SimpleDoubleProperty(foodType.get().getCalories()*(portion/100));
-        this.protein = new SimpleDoubleProperty(foodType.get().getProtein()*(portion/100));
-        this.carbs = new SimpleDoubleProperty(foodType.get().getCarbs()*(portion/100));
-        this.fats = new SimpleDoubleProperty(foodType.get().getFats()*(portion/100));
+
     }
     public FoodItem(int id, double portion, int foodTypeId, String name, double calories, double protein, double carbs, double fats) {
         this.id = new SimpleIntegerProperty(id);
@@ -28,5 +23,21 @@ public class FoodItem extends Food{
         this.protein = new SimpleDoubleProperty(protein);
         this.carbs = new SimpleDoubleProperty(carbs);
         this.fats = new SimpleDoubleProperty(fats);
+    }
+
+    public double getPortion() {
+        return portion;
+    }
+
+    public DoubleProperty portionProperty() {
+        return new SimpleDoubleProperty(portion);
+    }
+
+    public FoodType getFoodType() {
+        return foodType.get();
+    }
+
+    public SimpleObjectProperty<FoodType> foodTypeProperty() {
+        return foodType;
     }
 }

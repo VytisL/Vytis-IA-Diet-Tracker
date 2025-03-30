@@ -51,11 +51,14 @@ public class AddFoodItemIntoDayController implements Initializable {
     }
 
     private void onFoodItem(){
+        //This will create duplicate FoodItems in the DB each time a user wants to add a FoodItem. Fix later.
         FoodType foodType = food_type_combo_box.getValue();
         double portion = Double.parseDouble(portion_field.getText());
         Model.getInstance().createFoodItem(foodType, portion);
-        AlertUtility.displayConfirmation("Food Type created successfuly");
+        AlertUtility.displayConfirmation("Food Item created successfuly");
         emptyFields();
+
+        //Add the part where this is added to the day table.
     }
 
     private void loadFoodTypeData(){
