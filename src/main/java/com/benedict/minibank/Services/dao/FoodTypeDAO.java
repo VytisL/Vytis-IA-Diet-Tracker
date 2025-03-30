@@ -34,12 +34,7 @@ public class FoodTypeDAO {
     }
 
     public void update(FoodType foodType) {
-       /* if(!(foodType instanceof FoodType)){
-            throw new IllegalArgumentException("Excepted FoodType object");
-        }
 
-        FoodType foodType = (FoodType) entity;
-        */
         String sql = "UPDATE FoodTypes SET name = ?, calories = ?, protein = ?, carbs = ?, fats = ? WHERE id = ?";
         try(PreparedStatement stmt = this.conn.prepareStatement(sql)){
             stmt.setString(1, foodType.getName());

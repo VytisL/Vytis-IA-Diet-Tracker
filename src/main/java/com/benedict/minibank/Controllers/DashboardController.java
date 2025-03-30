@@ -29,8 +29,7 @@ public class DashboardController implements Initializable {
     public Button add_meal_into_day_one_btn;
     @FXML
     public Button add_meal_into_day_two_btn;
-    @FXML
-    public Button view_progress_btn;
+
 
     @FXML
     public TableView<FoodType> food_types_table;
@@ -56,7 +55,6 @@ public class DashboardController implements Initializable {
         create_meal_btn.setOnAction(event -> onCreateMeal());
         add_meal_into_day_one_btn.setOnAction(event -> onAddMealIntoDay());
         add_meal_into_day_two_btn.setOnAction(event -> onAddMealIntoDay());
-        view_progress_btn.setOnAction(event -> onViewProgress());
         delete_foodType_btn.setOnAction(event -> onDeleteFoodType());
         initTypesTableColumns();
         setRowFactoryForFoodTypesTable();
@@ -76,9 +74,7 @@ public class DashboardController implements Initializable {
     private void onAddMealIntoDay() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.ADD_MEAL_INTO_DAY);
     }
-    private void onViewProgress() {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(MenuOptions.PROGRESS_VIEWER);
-    }
+
 
 
 

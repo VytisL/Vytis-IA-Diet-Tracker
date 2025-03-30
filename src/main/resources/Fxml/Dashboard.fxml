@@ -42,7 +42,6 @@
                         </HBox>
                         <Label layoutY="44.0" prefHeight="25.0" prefWidth="95.0" text="Date:" AnchorPane.leftAnchor="0.0" />
                         <Button layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Change date" AnchorPane.rightAnchor="755.0" />
-                        <Button fx:id="view_progress_btn" layoutX="109.0" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="View progress" AnchorPane.rightAnchor="646.0" />
                         <Button fx:id="add_meal_into_day_one_btn" layoutX="432.0" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Add meal" />
                      </children>
                   </AnchorPane>
@@ -56,13 +55,11 @@
                         <Button fx:id="add_food_into_day_two_btn" layoutX="249.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Add food item to day" wrapText="true" />
                         <TableView fx:id="food_types_table" layoutX="1.0" layoutY="99.0" prefHeight="300.0" prefWidth="850.0">
                            <columns>
-                              <TableColumn fx:id="types_col_name" prefWidth="149.0" text="Item" />
-                              <TableColumn fx:id="types_col_calories" prefWidth="120.0" text="Calories" />
-                              <TableColumn fx:id="types_col_protein" prefWidth="120.0" text="Protein" />
-                              <TableColumn fx:id="types_col_carbs" prefWidth="100.0" text="Carbohydrates" />
-                              <TableColumn fx:id="types_col_fats" prefWidth="120.0" text="Fats" />
-                              <TableColumn fx:id="types_col_edit" prefWidth="120.0" text="Edit" />
-                              <TableColumn fx:id="types_col_remove" prefWidth="120.0" text="Remove" />
+                              <TableColumn fx:id="types_col_name" prefWidth="200.0" text="Item" />
+                              <TableColumn fx:id="types_col_calories" prefWidth="162.5" text="Calories" />
+                              <TableColumn fx:id="types_col_protein" prefWidth="162.5" text="Protein" />
+                              <TableColumn fx:id="types_col_carbs" prefWidth="162.5" text="Carbohydrates" />
+                              <TableColumn fx:id="types_col_fats" prefWidth="162.5" text="Fats" />
                            </columns>
                            <contextMenu>
                               <ContextMenu>
@@ -72,21 +69,26 @@
                               </ContextMenu>
                            </contextMenu>
                         </TableView>
-                        <TableView fx:id="meals_table" layoutX="1.0" layoutY="421.0" prefHeight="300.0" prefWidth="850.0">
-                           <columns>
-                              <TableColumn prefWidth="149.0" text="Item" />
-                              <TableColumn prefWidth="120.0" text="Calories" />
-                              <TableColumn prefWidth="120.0" text="Protein" />
-                              <TableColumn prefWidth="100.0" text="Carbohydrates" />
-                              <TableColumn prefWidth="120.0" text="Fats" />
-                              <TableColumn prefWidth="120.0" text="Edit" />
-                              <TableColumn prefWidth="120.0" text="Remove" />
-                           </columns>
-                        </TableView>
                         <Button fx:id="create_meal_btn" layoutX="470.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Add meal" />
                         <Label alignment="CENTER" layoutY="399.0" prefHeight="23.0" prefWidth="850.0" style="-fx-background-color: #006600;" text="Meals" textFill="WHITE" />
                         <Label alignment="CENTER" layoutY="76.0" prefHeight="23.0" prefWidth="850.0" style="-fx-background-color: #006600;" text="Food types" textFill="WHITE" />
                         <Button fx:id="add_meal_into_day_two_btn" layoutX="572.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Add meal to day" wrapText="true" />
+                        <TableView fx:id="meal_table" layoutX="1.0" layoutY="422.0" prefHeight="300.0" prefWidth="850.0">
+                           <columns>
+                              <TableColumn fx:id="meals_col_name" prefWidth="200.0" text="Meal" />
+                              <TableColumn fx:id="meals_col_calories" prefWidth="162.5" text="Calories" />
+                              <TableColumn fx:id="meals_col_protein" prefWidth="162.5" text="Protein" />
+                              <TableColumn fx:id="meals_col_carbs" prefWidth="162.5" text="Carbohydrates" />
+                              <TableColumn fx:id="meals_col_fats" prefWidth="162.5" text="Fats" />
+                           </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem fx:id="delete_foodType_btn1" mnemonicParsing="false" text="Delete Food Type" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>
@@ -95,14 +97,8 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="552.0">
                      <children>
-                        <HBox layoutY="315.0" prefHeight="77.0" prefWidth="850.0" spacing="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                           <children>
-                              <Button minHeight="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" text="Edit username/password" />
-                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" text="Edit weight" />
-                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" text="Edit maintenance calories" />
-                              <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" text="Log out" />
-                           </children>
-                        </HBox>
+                        <Button layoutX="474.0" layoutY="306.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" text="Log out" />
+                        <Button layoutX="215.0" layoutY="306.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0" text="Edit username/password" />
                      </children>
                   </AnchorPane>
                </content>

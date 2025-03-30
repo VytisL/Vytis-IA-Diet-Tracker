@@ -19,8 +19,6 @@ public class ViewFactory {
     private Pane addFoodItemIntoDayView;
     private Pane addMealIntoDayView;
     private Pane CreateMealView;
-    private Pane addMealDetailsView;
-    private Pane progressViewerView;
     private AnchorPane dashboard;
 
 
@@ -68,27 +66,6 @@ public class ViewFactory {
         return CreateMealView;
     }
 
-    public Pane getAddMealDetailsView() {
-        if(addMealDetailsView == null){
-            try {
-                addMealDetailsView = new FXMLLoader(getClass().getResource("/Fxml/AddMealDetailsWindow.fxml")).load();
-            }catch (Exception e){
-                System.out.println(e);
-            }
-        }
-        return addMealDetailsView;
-    }
-
-    public Pane getProgressViewerView() {
-        if(progressViewerView == null){
-            try {
-                progressViewerView = new FXMLLoader(getClass().getResource("/Fxml/ProgressViewerWindow.fxml")).load();
-            }catch (Exception e){
-                System.out.println(e);
-            }
-        }
-        return progressViewerView;
-    }
 
     public Pane returnToMainWindow() {
         if(dashboard == null){

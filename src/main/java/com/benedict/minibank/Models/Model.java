@@ -1,6 +1,7 @@
 package com.benedict.minibank.Models;
 
 import com.benedict.minibank.Services.dao.AuthorDAO;
+import com.benedict.minibank.Services.dao.FoodItemDAO;
 import com.benedict.minibank.Services.dao.FoodTypeDAO;
 import com.benedict.minibank.Services.dao.UserDAO;
 import com.benedict.minibank.Views.ViewFactory;
@@ -18,6 +19,7 @@ public class Model {
     public final UserDAO userDAO;
     public final AuthorDAO authorDAO;
     public final FoodTypeDAO foodTypeDAO;
+    public final FoodItemDAO foodItemDAO;
     private boolean loginSuccessFlag;
     private final ObservableList<Author> authors;
     private final ObservableList<FoodType> foodTypes;
@@ -30,6 +32,7 @@ public class Model {
         this.userDAO = new UserDAO(new DatabaseDriver().getConnection());
         this.authorDAO = new AuthorDAO(new DatabaseDriver().getConnection());
         this.foodTypeDAO = new FoodTypeDAO(new DatabaseDriver().getConnection());
+        this.foodItemDAO = new FoodItemDAO(new DatabaseDriver().getConnection());
         this.loginSuccessFlag = false;
         this.currentUser = null;
         this.authors = FXCollections.observableArrayList();
@@ -109,5 +112,12 @@ public class Model {
     public void deleteFoodType(int id){
         foodTypeDAO.delete(id);
     }
+
+    //FoodItems
+
+    public void createFoodItem(FoodType foodType, double portion){
+        foodItemDAO.create(foodType, portion);
+    }
+
 
 }
