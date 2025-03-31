@@ -62,6 +62,11 @@ public class DashboardController implements Initializable {
         initTypesTableColumns();
         setRowFactoryForFoodTypesTable();
         loadFoodTypeData();
+
+        //Just for test
+        Model.getInstance().getMeals();
+        System.out.println("And now meals with details: ");
+        Model.getInstance().getMealsWithDetails();
     }
 
 

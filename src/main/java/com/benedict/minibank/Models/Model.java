@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
@@ -122,6 +123,10 @@ public class Model {
     public void createMeal(String name, ObservableList<FoodType> foodTypes, ObservableList<Double> portions){
         mealDAO.create(name, foodTypes, portions);
     }
+
+    public ArrayList<Meal> getMeals(){return  mealDAO.getAllMeals();}
+
+    public void getMealsWithDetails(){mealDAO.getAllMealsWithItems();}
 
 
 }
